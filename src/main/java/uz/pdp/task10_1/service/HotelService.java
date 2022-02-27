@@ -18,11 +18,12 @@ public class HotelService {
             Hotel byId = hotelRepository.getById(hotel.getId());
             byId.setName(hotel.getName());
             hotelRepository.save(byId);
+            return new ApiResponse(true, "Edited");
         }
         else {
             hotelRepository.save(hotel);
+            return new ApiResponse(true,"Saved");
         }
-        return new ApiResponse(true,hotel.getId()==null ? "Saved" : "Edited");
     }
 
     public ApiResponse getHotelByID(Long id) {
