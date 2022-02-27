@@ -1,6 +1,6 @@
 package uz.pdp.task10_1.utills;
 
-import uz.pdp.apponlinetestserver.exceptions.PageSizeException;
+import uz.pdp.task10_1.exceptions.PageSizeException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
