@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.task10_1.payload.RoomDto;
 import uz.pdp.task10_1.service.RoomService;
+import uz.pdp.task10_1.utills.AppConstants;
+import uz.pdp.task10_1.utills.CommandUtills;
 
 @RestController
 @RequestMapping("/room")
@@ -17,8 +19,8 @@ public class RoomController {
     @GetMapping("/getRoomsByHotelId/{hotel_id}")
     public HttpEntity<?> getRoomsByHotelId(
             @PathVariable Long hotel_id,
-            @RequestParam("page") Integer page,
-            @RequestParam("size") Integer size,
+            @RequestParam(value = "page",defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
+            @RequestParam(value = "size",defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size,
             @RequestParam(value = "all",defaultValue = "true") boolean all
     ){
         return ResponseEntity.ok(roomService.getAllRoomsByHotelId(hotel_id,page,size,all));
